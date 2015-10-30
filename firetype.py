@@ -78,6 +78,8 @@ def execute(lines):
         elif line == ',':
             array.push_zero()
             array(ord(sys.stdin.read(1)))
+        elif line == '&':
+            sys.stdout.write(chr(array()))
         elif line == '.':
             sys.stdout.write(str(array()))
         elif line == '!':
@@ -125,9 +127,9 @@ def main(args):
     try:
         execute(data.split('\n'))
     except:
-        print('ERROR!')
-        print('Array was %r' % array)
-        print('Re-raising error...')
+        sys.stderr.write('ERROR!\n')
+        sys.stderr.write('Array was %r\n' % array)
+        sys.stderr.write('Re-raising error...\n')
         raise
 
 if __name__ == '__main__':
